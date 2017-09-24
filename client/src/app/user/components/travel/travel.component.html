@@ -1,0 +1,24 @@
+<md-card>
+  <md-card-title>Work Travel</md-card-title>
+  <md-card-content>
+      <p>Log Travel To/From Work Location</p>
+        <div *ngIf="!(userState | async)?.atwork">
+            <button md-raised-button color="primary" type="button" (click)="startTrip()" [disabled]="userState.driving">Start Trip</button>
+            <button md-raised-button color="accent" type="button" (click)="endTrip()" [disabled]="!userState.driving">End Trip</button>
+        </div>
+  </md-card-content>
+</md-card>
+
+<md-card *ngIf="(userState | async)?.atwork">
+  <md-card-content>
+    <p>
+      You have to punch out before you begin your travel.
+    </p>
+  </md-card-content>
+</md-card>
+
+<span class="done" *ngIf="(userState | async)?.driving">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+</span>

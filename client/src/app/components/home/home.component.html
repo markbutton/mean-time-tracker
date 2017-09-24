@@ -1,0 +1,39 @@
+<md-toolbar color="primary">
+    <span>
+        <button md-icon-button>
+          <md-icon>access_alarm</md-icon>
+        </button>
+        Time Tracker
+    </span>
+</md-toolbar>
+
+<md-card>
+  <md-card-title>
+    <div>
+    Hi {{(user | async)?.firstName}} {{(user | async)?.lastName}}!
+    </div>
+    </md-card-title>
+  <p>You are logged into Time Tracker</p>
+  <md-card-content>
+    <div>
+        <button md-raised-button color="accent" type="button" routerLink="/user">User</button>
+        <button md-raised-button color="accent" type="button" routerLink="/manager">Manager</button>
+        <button md-raised-button color="accent" type="button" routerLink="/admin">Admin</button>
+    </div>
+  </md-card-content>
+</md-card>
+
+    <ng-template #loading>
+        <div>Loading ...</div>
+    </ng-template>
+
+<!--<md-card>
+  <md-card-title>All registered users:</md-card-title>
+  <md-card-content>
+      <ul>
+        <li *ngFor="let user of users | async">
+          {{user.username}} ({{user.firstName}} {{user.lastName}}) - <a (click)="deleteUser(user.id)">Delete</a>
+        </li>
+      </ul>
+  </md-card-content>
+</md-card>-->

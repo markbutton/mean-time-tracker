@@ -1,0 +1,50 @@
+<md-toolbar color="primary">
+    <span>
+        <button md-icon-button>
+          <md-icon>access_alarm</md-icon>
+        </button>
+        Time Tracker
+    </span>
+</md-toolbar>
+
+<md-card>
+    <md-card-title>Register</md-card-title>
+    <md-card-content>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        <div>
+        <md-input-container>
+            <input mdInput placeholder="First Name" dividerColor="accent" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
+            <md-error>Firstname is required</md-error>
+        </md-input-container>
+        </div>
+        <div>
+        <md-input-container>
+            <input mdInput placeholder="Last Name" dividerColor="accent" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
+            <md-error>Lastname is required</md-error>
+        </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <input mdInput placeholder="Employee ID" dividerColor="accent" name="employeeId" [(ngModel)]="model.employeeId" #password="ngModel" required />
+                <md-error>Employee ID is required</md-error>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <input mdInput placeholder="User Name" dividerColor="accent" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+                <md-error>Username is required</md-error>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <input mdInput placeholder="Password" dividerColor="accent" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required />
+                <md-error>Password is required</md-error>
+            </md-input-container>
+        </div>
+        <div>
+            <button md-raised-button color="primary" type="submit">Register</button>
+            <button md-raised-button color="accent" type="button" routerLink="/login">Cancel</button>
+        </div>
+    </form>
+    </md-card-content>
+</md-card>

@@ -1,0 +1,16 @@
+<!-- main app container -->
+<div [class.m2app-dark]="isDarkTheme">
+
+    <router-outlet></router-outlet>
+     <app-alert></app-alert>
+
+<md-card *ngIf="navGuard.canActivate()">
+  <md-card-content>
+      <nav>
+        <a routerLink="/login">Logout</a>
+      </nav>
+  </md-card-content>
+</md-card>
+
+
+</div>

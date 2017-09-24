@@ -1,0 +1,19 @@
+<md-card>
+  <md-card-title>Your Status</md-card-title>
+  <md-card-content>
+    <div>
+    <p>
+      <span *ngIf="(userState | async)?.driving">You are driving</span>
+      <span *ngIf="!(userState | async)?.driving">You are not driving</span>
+    </p>
+    <p>
+      <span *ngIf="(userState | async)?.atwork">You are working at your location</span>
+      <span *ngIf="!(userState | async)?.atwork">You have not clocked in at a location</span>
+    </p>
+    <p>
+      <span *ngIf="(userState | async)?.atlunch">You are at lunch</span>
+      <span *ngIf="!(userState | async)?.atlunch">You are not at lunch</span>
+    </p>
+    </div>
+  </md-card-content>
+</md-card>

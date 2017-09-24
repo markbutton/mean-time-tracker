@@ -1,0 +1,27 @@
+<md-toolbar color="primary">
+    <span>
+        <button md-icon-button>
+          <md-icon>access_alarm</md-icon>
+        </button>
+        Time Tracker
+    </span>
+    <span>
+      <button *ngIf="navGuard.canActivate()" md-icon-button routerLinkActive="active" routerLink="/user/home">
+        <md-icon>home</md-icon>
+      </button>
+      <button *ngIf="navGuard.canActivate()" md-icon-button routerLinkActive="active" routerLink="/user/travel">
+        <md-icon>directions_car</md-icon>
+      </button>
+      <button *ngIf="navGuard.canActivate()" md-icon-button routerLinkActive="active" routerLink="/user/location">
+        <md-icon>location_city</md-icon>
+      </button>
+      <button *ngIf="navGuard.canActivate()" md-icon-button routerLinkActive="active" routerLink="/user/lunch">
+        <md-icon>restaurant</md-icon>
+      </button>
+      <button *ngIf="navGuard.canActivate()" md-icon-button routerLinkActive="active" routerLink="/user/tracker">
+        <md-icon>perm_identity</md-icon>
+      </button>
+    </span>
+  </md-toolbar>
+
+<router-outlet></router-outlet>

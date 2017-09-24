@@ -1,0 +1,16 @@
+<md-card>
+  <md-card-title>Take Lunch</md-card-title>
+  <md-card-content>
+      <p>Punch out for lunch</p>
+        <div>
+            <button md-raised-button color="primary" type="button" (click)="lunchOut()" [disabled]="userState.atlunch">Lunch Out</button>
+            <button md-raised-button color="accent" type="button" (click)="lunchIn()" [disabled]="!userState.atlunch">Lunch In</button>
+        </div>
+  </md-card-content>
+</md-card>
+
+<span class="done" *ngIf="userState.atlunch">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+</span>

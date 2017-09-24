@@ -1,0 +1,30 @@
+<md-card>
+  <md-card-title>Work Location</md-card-title>
+  <md-card-content>
+    <p>Select a location and punch in</p>
+    <p>
+        <md-select class="form-control" placeholder="Location" [(ngModel)]="selectedLocation._id"  
+        (change)="changeLocation(selectedLocation)">
+          <md-option>None</md-option>
+          <md-option *ngFor="let location of locations | async" [value]="location._id">{{ location.name }}</md-option>
+        </md-select>
+    </p>
+    
+    <div *ngIf="userState | async">
+      <button md-raised-button color="primary" type="button" (click)="punchIn()" [disabled]="(userState | async)?.atwork">Punch In</button>
+      <button md-raised-button color="accent" type="button" (click)="punchOut()" [disabled]="!(userState | async)?.atwork">Punch Out</button>
+    </div>
+
+  </md-card-content>
+</md-card>
+
+<ng-template #loading>Loading User Data...</ng-template>
+
+<div *ngIf="userState | async; let userState; else loading">
+<span class="done" *ngIf="userState.atwork">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+</span>
+</div>
+
